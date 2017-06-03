@@ -27,3 +27,10 @@ var/
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+
+db.sqlite3
+local_settings.py
+/static/
+/static0/
+media/
+bower_components
