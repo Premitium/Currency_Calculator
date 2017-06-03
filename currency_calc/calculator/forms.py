@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Currency
 
 class CurrencyConversionForm(forms.Form):
