@@ -7,11 +7,31 @@
 <body>
   <h1>Currency Calculator</h1>
   {{result}}
-  <form method="POST" action="" id="calculate_exchange_rate_form">
+  <form action="" id="calculate_exchange_rate_form">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit" />
   </form>
 </body>
-<sript type="text/javascript" src="{%static 'js/jquery-3.2.1.min.js' %}"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+  $(document).on('submit', '#calculate_exchange_rate_form', function(e){
+      e.preventDefault();
+      $.ajax({
+        type:'POST',
+        url:'/',
+        data: $("form").serialize(),
+        cache: false,
+        dataType: "json",
+        success: function(resp){
+          $('#id_result_amount').val(resp)
+        }
+      })
+  });
+</script>
 </html>

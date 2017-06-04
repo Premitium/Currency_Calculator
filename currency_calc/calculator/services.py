@@ -43,17 +43,20 @@ Calculate exchange rates according to a related currency.
 In this case BGN.
 """
 def calculateExchchangeRate(data):
-    quantity = int(data.get('base_currency_amount'))
+    result = None
 
-    base_currency_id = data.get('base_currency')
-    float_currency_id = data.get('floating_currency')
+    if data.get('base_currency_amount'):
+        quantity = int(data.get('base_currency_amount'))
 
-    base_currency = Currency.objects.get_currency_sign_and_bgn_to_value(base_currency_id)
-    float_currency = Currency.objects.get_currency_sign_and_bgn_to_value(float_currency_id)
+        base_currency_id = data.get('base_currency')
+        float_currency_id = data.get('floating_currency')
 
-    left_to_base_value = base_currency[1]
-    right_to_base_value = float_currency[1]
+        base_currency = Currency.objects.get_currency_sign_and_bgn_to_value(base_currency_id)
+        float_currency = Currency.objects.get_currency_sign_and_bgn_to_value(float_currency_id)
 
-    result = right_to_base_value * quantity / left_to_base_value
+        left_to_base_value = base_currency[1]
+        right_to_base_value = float_currency[1]
+
+        result = right_to_base_value * quantity / left_to_base_value
 
     return result
