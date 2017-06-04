@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**__pycache__/
 *.py[cod]
 
 # C extensions
@@ -30,7 +30,7 @@ var/
 
 db.sqlite3
 local_settings.py
-/static/
+**static/
 /static0/
 media/
 bower_components
