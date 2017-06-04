@@ -1,9 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Currency Calculator</title>
+</head>
 <body>
   <h1>Index</h1>
   {{result}}
-  <form method="POST" action="">
+  <form method="POST" action="" id="calculate_exchange_rate_form">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit" />
   </form>
-</body>
+</body
+</html>
