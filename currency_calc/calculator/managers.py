@@ -8,5 +8,4 @@ class CurrencyManager(models.Manager):
         return self.all().filter(id=db_id).values_list('currency_sign','bgn_to_currency').first()
 
     def get_currency_signs(self):
-        #върни куерисет + знака на валутата
         return self.all().values_list('currency_sign','currency_name')
