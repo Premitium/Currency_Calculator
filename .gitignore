@@ -59,8 +59,8 @@ target/
 
 db.sqlite3
 local_settings.py
-/static/
-/static_cdn/
+static/
+static_cdn/
 media/
 bower_components
 .sass-cache/
